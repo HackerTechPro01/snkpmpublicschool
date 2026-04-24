@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | S.N.K.P.M Public School</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="../assets/css/output.css" rel="stylesheet">
+</head>
+
+<body class="font-sans antialiased bg-[#050810] text-gray-300 relative overflow-hidden flex h-screen">
+
+
+    <div id="global-space-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div class="global-stars"></div>
+    </div>
+
+    <aside
+        class="w-64 bg-[#0b1121]/95 backdrop-blur-xl border-r border-[#151e32] flex flex-col z-20 transition-all duration-300 shadow-[4px_0_24px_rgba(0,0,0,0.5)] relative">
+
+        <div class="h-20 flex items-center px-6 border-b border-[#151e32]">
+            <a href="admin-dashboard.html" class="flex items-center gap-3"> <img src="../assets/images/logo.png"
+                    alt="Logo"
+                    class="h-10 w-10 rounded-full bg-white p-1 object-contain shadow-[0_0_10px_rgba(34,211,238,0.3)]">
+                <h1 class="font-bold text-lg text-white tracking-wide">Admin Panel</h1>
+            </a>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-2 scrollbar-hide">
+
+            <a href="admin-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 bg-[#22d3ee]/10 text-[#22d3ee] rounded-xl font-medium border border-[#22d3ee]/20 shadow-[inset_0_0_15px_rgba(34,211,238,0.1)] transition-all">
+                <i class="ph-fill ph-squares-four text-xl"></i>
+                Overview
+            </a>
+
+            <a href="admin-admissions.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-student text-xl group-hover:text-[#a855f7] transition-colors"></i>
+                Admissions
+                <span class="ml-auto bg-[#a855f7] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">New</span>
+            </a>
+
+            <a href="admin-courses.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-books text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Courses & Fees
+            </a>
+
+            <a href="admin-sms.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-chat-text text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                SMS / Notices
+            </a>
+
+            <a href="admin-gallery.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-image text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Gallery Update
+            </a>
+
+            <a href="admin-settings.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-gear text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-[#151e32]">
+            <div
+                class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#151e32] transition-colors cursor-pointer border border-transparent hover:border-white/5">
+                <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#22d3ee] to-[#a855f7] flex items-center justify-center text-white font-bold shadow-lg">
+                    AM
+                </div>
+                <div class="flex-1 overflow-hidden">
+                    <p class="text-sm font-semibold text-white truncate">Anil Mishra</p>
+                    <p class="text-xs text-[#22d3ee] truncate">Super Admin</p>
+                </div>
+                <i class="ph ph-sign-out text-gray-400 hover:text-red-400 transition-colors"></i>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden z-10 relative">
+
+        <header
+            class="h-20 bg-[#0b1121]/80 backdrop-blur-md border-b border-[#151e32] flex items-center justify-between px-8 z-20">
+            <div>
+                <h2 class="text-xl font-bold text-white tracking-wide">Dashboard Overview</h2>
+                <p class="text-xs text-gray-400 mt-0.5">Welcome back, ANIL. Here is what's happening today.</p>
+            </div>
+
+            <div class="flex items-center gap-5">
+
+                <div class="relative hidden md:block">
+                    <i class="ph ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                    <input type="text" id="topSearchBar" placeholder="Search students, invoices..."
+                        class="bg-[#151e32] border border-white/5 text-sm rounded-full pl-10 pr-4 py-2 text-white focus:outline-none focus:border-[#22d3ee] transition-colors w-64">
+                </div>
+
+                <div class="relative group z-50">
+
+                    <button
+                        class="relative p-2.5 text-gray-400 group-hover:text-white transition-all duration-300 bg-[#151e32] hover:bg-[#1e293b] rounded-full border border-white/5 cursor-pointer shadow-lg">
+                        <i class="ph ph-bell text-xl"></i>
+                        <span
+                            class="absolute top-1 right-1.5 w-2.5 h-2.5 bg-gradient-to-r from-red-500 to-pink-500 rounded-full border-2 border-[#0b1121] animate-pulse"></span>
+                    </button>
+
+                    <div
+                        class="absolute right-0 mt-3 w-80 bg-[#0f172a]/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.7)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 before:absolute before:-top-2 before:right-4 before:w-4 before:h-4 before:bg-[#0f172a]/95 before:border-l before:border-t before:border-white/10 before:rotate-45">
+
+                        <div
+                            class="flex items-center justify-between px-5 py-4 border-b border-white/5 relative z-10 bg-transparent">
+                            <h3 class="text-sm font-semibold text-white tracking-wide">Notifications</h3>
+                            <span id="notificationCountBadge"
+                                class="bg-gradient-to-r from-[#22d3ee]/20 to-[#a855f7]/20 text-[#22d3ee] text-[10px] font-bold px-2.5 py-1 rounded-full border border-[#22d3ee]/20 shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                                0 New
+                            </span>
+                        </div>
+
+                        <div id="notificationList" class="max-h-80 overflow-y-auto scrollbar-hide relative z-10">
+                            <div class="p-4 text-center text-gray-500 text-sm">
+                                <i class="ph ph-spinner animate-spin text-xl mb-2"></i><br>Loading live alerts...
+                            </div>
+                        </div>
+
+                        <div id="markAllReadBtn"
+                            class="p-3 border-t border-white/5 text-center bg-[#151e32]/40 hover:bg-[#151e32]/80 transition-colors rounded-b-2xl relative z-10 cursor-pointer group/btn">
+                            <span
+                                class="text-xs text-gray-400 group-hover/btn:text-white transition-colors font-medium flex items-center justify-center gap-2">
+                                Mark all as read <i
+                                    class="ph ph-check-all text-[#22d3ee] text-base group-hover/btn:drop-shadow-[0_0_8px_rgba(34,211,238,0.8)] transition-all"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8 scrollbar-hide">
+            <div class="max-w-7xl mx-auto space-y-8">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="bg-[#151e32]/80 backdrop-blur-sm p-6 rounded-3xl border border-white/5 hover:border-[#22d3ee]/30 transition-all shadow-lg relative overflow-hidden group">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-[#22d3ee]/10 rounded-full blur-2xl group-hover:bg-[#22d3ee]/20 transition-all">
+                        </div>
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div>
+                                <p class="text-sm text-gray-400 font-medium mb-1">Total Admissions</p>
+                                <h3 id="statTotalAdmissions" class="text-3xl font-bold text-white"><i
+                                        class="ph ph-spinner animate-spin"></i></h3>
+                            </div>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] border border-[#22d3ee]/20">
+                                <i class="ph-fill ph-users text-2xl"></i>
+                            </div>
+                        </div>
+                        <p id="statTotalSub" class="text-xs text-green-400 mt-2">Loading...</p>
+                    </div>
+
+                    <div
+                        class="bg-[#151e32]/80 backdrop-blur-sm p-6 rounded-3xl border border-white/5 hover:border-[#a855f7]/30 transition-all shadow-lg relative overflow-hidden group">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-[#a855f7]/10 rounded-full blur-2xl group-hover:bg-[#a855f7]/20 transition-all">
+                        </div>
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div>
+                                <p class="text-sm text-gray-400 font-medium mb-1">New Inquiries</p>
+                                <h3 id="statNewInquiries" class="text-3xl font-bold text-white"><i
+                                        class="ph ph-spinner animate-spin"></i></h3>
+                            </div>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#a855f7]/10 flex items-center justify-center text-[#a855f7] border border-[#a855f7]/20">
+                                <i class="ph-fill ph-envelope-open text-2xl"></i>
+                            </div>
+                        </div>
+                        <p id="statNewSub" class="text-xs text-green-400 mt-2">Loading...</p>
+                    </div>
+
+                    <div
+                        class="bg-[#151e32]/80 backdrop-blur-sm p-6 rounded-3xl border border-white/5 hover:border-blue-500/30 transition-all shadow-lg relative overflow-hidden group">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all">
+                        </div>
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div>
+                                <p class="text-sm text-gray-400 font-medium mb-1">Revenue Collected</p>
+                                <h3 id="statRevenue" class="text-3xl font-bold text-white"><i
+                                        class="ph ph-spinner animate-spin"></i></h3>
+                            </div>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center text-blue-400 border border-blue-500/20">
+                                <i class="ph-fill ph-wallet text-2xl"></i>
+                            </div>
+                        </div>
+                        <p id="statRevPending" class="text-xs text-gray-400 mt-2 font-medium">Pending: ⚙️</p>
+                    </div>
+
+                    <div
+                        class="bg-[#151e32]/80 backdrop-blur-sm p-6 rounded-3xl border border-white/5 hover:border-pink-500/30 transition-all shadow-lg relative overflow-hidden group">
+                        <div
+                            class="absolute -right-4 -top-4 w-24 h-24 bg-pink-500/10 rounded-full blur-2xl group-hover:bg-pink-500/20 transition-all">
+                        </div>
+                        <div class="flex justify-between items-start mb-4 relative z-10">
+                            <div>
+                                <p class="text-sm text-gray-400 font-medium mb-1">Active Courses</p>
+                                <h3 id="statCourses" class="text-3xl font-bold text-white"><i
+                                        class="ph ph-spinner animate-spin"></i></h3>
+                            </div>
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-pink-500/10 flex items-center justify-center text-pink-400 border border-pink-500/20">
+                                <i class="ph-fill ph-books text-2xl"></i>
+                            </div>
+                        </div>
+                        <p
+                            class="text-xs text-[#22d3ee] flex items-center gap-1 mt-4 relative z-10 font-medium cursor-pointer hover:underline">
+                            Manage Courses <i class="ph ph-arrow-right"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                    <div
+                        class="lg:col-span-2 bg-[#151e32]/80 backdrop-blur-sm rounded-3xl border border-white/5 p-6 shadow-xl relative overflow-hidden h-fit">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-white">Recent Admission Requests</h3>
+                            <a href="admin-admissions.html"
+                                class="text-sm text-[#22d3ee] hover:text-white transition-colors flex items-center gap-1 font-medium">
+                                View All <i class="ph ph-caret-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm whitespace-nowrap">
+                                <thead class="text-gray-400 border-b border-white/10">
+                                    <tr>
+                                        <th class="pb-3 pr-4 font-medium">Student Name</th>
+                                        <th class="pb-3 px-4 font-medium">Class</th>
+                                        <th class="pb-3 px-4 font-medium">Date Applied</th>
+                                        <th class="pb-3 px-4 font-medium">Status</th>
+                                        <th class="pb-3 pl-4 font-medium text-right">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboardRecentTable" class="text-gray-300">
+                                    <tr>
+                                        <td colspan="5" class="py-10 text-center text-[#22d3ee] font-medium">
+                                            <i class="ph ph-spinner animate-spin inline-block text-2xl mb-2"></i><br>
+                                            Loading live data...
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+
+                        <div
+                            class="bg-gradient-to-br from-[#151e32] to-[#0b1121] p-6 rounded-3xl border border-white/5 shadow-xl relative overflow-hidden">
+                            <div class="absolute -right-10 -top-10 text-white/5 text-[100px] pointer-events-none">
+                                <i class="ph-fill ph-chat-circle-text"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2 relative z-10">Quick SMS Broadcast</h3>
+                            <p class="text-xs text-gray-400 mb-4 relative z-10">Send a quick notice to all parents or
+                                specific classes.</p>
+
+                            <textarea id="quickSmsText" rows="3" placeholder="Type notice here..."
+                                class="w-full bg-[#050810] border border-white/10 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-[#22d3ee] transition-colors mb-3 relative z-10"></textarea>
+
+                            <button id="quickSmsBtn"
+                                class="w-full bg-gradient-to-r from-[#22d3ee] to-[#a855f7] text-white font-semibold py-2.5 rounded-xl hover:opacity-90 transition-opacity flex items-center justify-center gap-2 relative z-10 text-sm shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                                <i class="ph-fill ph-paper-plane-right"></i> Send Now
+                            </button>
+                        </div>
+
+                        <div class="bg-[#151e32]/80 backdrop-blur-sm p-6 rounded-3xl border border-white/5 shadow-xl">
+                            <h3 class="text-lg font-bold text-white mb-4">Update Gallery</h3>
+
+                            <input type="file" id="galleryInput" class="hidden" accept="image/png, image/jpeg"
+                                onchange="alert('Image Selected: ' + this.files[0].name + ' \\n(Upload logic will be added later)')">
+
+                            <div onclick="document.getElementById('galleryInput').click()"
+                                class="border-2 border-dashed border-white/10 rounded-xl p-6 text-center hover:border-[#22d3ee]/50 transition-colors cursor-pointer group bg-black/20">
+                                <div
+                                    class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-[#22d3ee]/10 transition-colors">
+                                    <i
+                                        class="ph ph-cloud-arrow-up text-2xl text-gray-400 group-hover:text-[#22d3ee] transition-colors"></i>
+                                </div>
+                                <p class="text-sm text-white font-medium mb-1">Click to upload photos</p>
+                                <p class="text-xs text-gray-500">Supports JPG, PNG (Max 5MB)</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+    <script>
+        checkAuth();
+    </script>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+
+</html>

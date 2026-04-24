@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions Management | Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="../assets/css/output.css" rel="stylesheet">
+</head>
+
+<body class="font-sans antialiased bg-[#050810] text-gray-300 relative overflow-hidden flex h-screen">
+
+    <div id="global-space-bg" class="absolute inset-0 z-0 pointer-events-none opacity-40">
+        <div class="global-stars"></div>
+    </div>
+
+    <aside
+        class="w-64 bg-[#0b1121]/95 backdrop-blur-xl border-r border-[#151e32] flex flex-col z-20 transition-all duration-300 shadow-[4px_0_24px_rgba(0,0,0,0.5)] relative">
+        <div class="h-20 flex items-center px-6 border-b border-[#151e32]">
+            <a href="../index.html" class="flex items-center gap-3">
+                <img src="../assets/images/logo.png" alt="Logo"
+                    class="h-10 w-10 rounded-full bg-white p-1 object-contain shadow-[0_0_10px_rgba(34,211,238,0.3)]">
+                <h1 class="font-bold text-lg text-white tracking-wide">Admin Panel</h1>
+            </a>
+        </div>
+
+        <nav class="flex-1 overflow-y-auto py-6 px-4 space-y-2 scrollbar-hide">
+            <a href="admin-dashboard.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-squares-four text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Overview
+            </a>
+            <a href="admin-admissions.html"
+                class="flex items-center gap-3 px-4 py-3 bg-[#22d3ee]/10 text-[#22d3ee] rounded-xl font-medium border border-[#22d3ee]/20 shadow-[inset_0_0_15px_rgba(34,211,238,0.1)] transition-all">
+                <i class="ph-fill ph-student text-xl"></i>
+                Admissions
+                <span class="ml-auto bg-[#a855f7] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">New</span>
+            </a>
+            <a href="admin-courses.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-books text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Courses & Fees
+            </a>
+            <a href="admin-sms.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-chat-text text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                SMS / Notices
+            </a>
+            <a href="admin-gallery.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-image text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Gallery Update
+            </a>
+            <a href="admin-settings.html"
+                class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-[#151e32] rounded-xl font-medium transition-all group">
+                <i class="ph ph-gear text-xl group-hover:text-[#22d3ee] transition-colors"></i>
+                Settings
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-[#151e32]">
+            <div class="flex items-center gap-3 p-2 rounded-xl hover:bg-[#151e32] transition-colors cursor-pointer border border-transparent hover:border-white/5"
+                onclick="logoutAdmin()">
+                <div
+                    class="w-10 h-10 rounded-full bg-gradient-to-tr from-[#22d3ee] to-[#a855f7] flex items-center justify-center text-white font-bold shadow-lg">
+                    MK</div>
+                <div class="flex-1 overflow-hidden">
+                    <p class="text-sm font-semibold text-white truncate">MK Hacker</p>
+                    <p class="text-xs text-[#22d3ee] truncate">Super Admin</p>
+                </div>
+                <i class="ph ph-sign-out text-gray-400 hover:text-red-400 transition-colors" title="Logout"></i>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col h-screen overflow-hidden z-10 relative">
+
+        <header
+            class="h-20 bg-[#0b1121]/80 backdrop-blur-md border-b border-[#151e32] flex items-center justify-between px-8 z-20">
+            <div>
+                <h2 class="text-xl font-bold text-white tracking-wide">Admissions Database</h2>
+                <p class="text-xs text-gray-400 mt-0.5">Manage and review all student applications.</p>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-[#151e32] hover:bg-[#22d3ee]/10 text-gray-300 hover:text-[#22d3ee] border border-white/5 hover:border-[#22d3ee]/30 transition-all px-4 py-2 rounded-xl text-sm font-medium flex items-center gap-2">
+                    <i class="ph ph-download-simple text-lg"></i> Export CSV
+                </button>
+            </div>
+        </header>
+
+        <div class="flex-1 overflow-y-auto p-8 scrollbar-hide">
+            <div class="max-w-7xl mx-auto">
+
+                <div
+                    class="bg-[#151e32]/80 backdrop-blur-sm rounded-3xl border border-white/5 p-6 shadow-xl relative overflow-hidden">
+
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
+                        <div class="relative w-full md:w-96">
+                            <i
+                                class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <input type="text" id="searchAdmissions" placeholder="Search by name or mobile..."
+                                class="w-full bg-[#050810] border border-white/5 text-sm rounded-xl pl-11 pr-4 py-3 text-white focus:outline-none focus:border-[#22d3ee] transition-colors">
+                        </div>
+                        <div class="flex gap-3 w-full md:w-auto">
+                            <select name="Class" required
+                                class="w-full bg-[#050810] border border-white/10 rounded-xl py-3 pl-12 pr-4 text-white focus:outline-none focus:border-[#22d3ee] transition-colors appearance-none">
+                                <option value="" disabled selected>All classes</option>
+                                <optgroup label="Pre-Primary" class="bg-[#0b1121] text-gray-400 font-bold">
+                                    <option value="Nursery" class="text-white font-normal">Nursery</option>
+                                    <option value="LKG" class="text-white font-normal">LKG</option>
+                                    <option value="UKG" class="text-white font-normal">UKG</option>
+                                </optgroup>
+                                <optgroup label="Primary" class="bg-[#0b1121] text-gray-400 font-bold">
+                                    <option value="Class 1" class="text-white font-normal">Class 1</option>
+                                    <option value="Class 2" class="text-white font-normal">Class 2</option>
+                                    <option value="Class 3" class="text-white font-normal">Class 3</option>
+                                    <option value="Class 4" class="text-white font-normal">Class 4</option>
+                                    <option value="Class 5" class="text-white font-normal">Class 5</option>
+                                </optgroup>
+                                <optgroup label="Junior" class="bg-[#0b1121] text-gray-400 font-bold">
+                                    <option value="Class 6" class="text-white font-normal">Class 6</option>
+                                    <option value="Class 7" class="text-white font-normal">Class 7</option>
+                                    <option value="Class 8" class="text-white font-normal">Class 8</option>
+                                </optgroup>
+                                <optgroup label="Senior" class="bg-[#0b1121] text-gray-400 font-bold">
+                                    <option value="Class 9" class="text-white font-normal">Class 9</option>
+                                    <option value="Class 10" class="text-white font-normal">Class 10</option>
+                                    <option value="Class 11" class="text-white font-normal">Class 11</option>
+                                    <option value="Class 12" class="text-white font-normal">Class 12</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm whitespace-nowrap">
+                            <thead class="text-gray-400 border-b border-white/10 bg-[#0b1121]/50">
+                                <tr>
+                                    <th class="py-4 px-4 font-medium rounded-tl-lg">Student Name</th>
+                                    <th class="py-4 px-4 font-medium">Class</th>
+                                    <th class="py-4 px-4 font-medium">Mobile No.</th>
+                                    <th class="py-4 px-4 font-medium">Gender</th>
+                                    <th class="py-4 px-4 font-medium">Date Applied</th>
+                                    <th class="py-4 px-4 font-medium">Status</th>
+                                    <th class="py-4 px-4 font-medium text-right rounded-tr-lg">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="fullAdmissionsTable" class="text-gray-300">
+                                <tr>
+                                    <td colspan="7" class="py-12 text-center text-[#22d3ee] font-medium">
+                                        <i class="ph ph-spinner animate-spin inline-block text-2xl mb-2"></i><br>
+                                        Loading database from Google Sheets...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.getElementById('fullAdmissionsTable');
+
+            if (tableBody) {
+                // 👇 YAHAN APNA GOOGLE SCRIPT URL DALEIN 👇
+                const sheetURL = 'https://script.google.com/macros/s/AKfycbxmLFd9i1Up4AUwqR9O0EPA6690BBJMrbu4_cUU9qaHHiEv-_W3VhApZMIKkDzm-lRC/exec';
+
+                fetch(sheetURL)
+                    .then(response => response.json())
+                    .then(data => {
+                        tableBody.innerHTML = '';
+
+                        if (data.length === 0) {
+                            tableBody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-gray-500">No records found.</td></tr>`;
+                            return;
+                        }
+
+                        data.forEach(student => {
+                            const dateObj = new Date(student['Timestamp']);
+                            const dateStr = dateObj.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+
+                            let initials = "ST";
+                            if (student['Student Name']) {
+                                initials = student['Student Name'].split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+                            }
+
+                            // Handling empty fields gracefully
+                            const mobile = student['Mobile'] || 'N/A';
+                            const gender = student['Gender'] || 'N/A';
+
+                            const row = `
+                            <tr class="border-b border-white/5 hover:bg-white/[0.02] transition-colors group">
+                                <td class="py-4 px-4 flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-[#22d3ee] to-[#a855f7] flex justify-center items-center text-white text-xs font-bold shadow-lg">${initials}</div>
+                                    <div>
+                                        <span class="font-medium text-white block">${student['Student Name']}</span>
+                                        <span class="text-xs text-gray-500">Father: ${student['Father Name'] || 'N/A'}</span>
+                                    </div>
+                                </td>
+                                <td class="py-4 px-4 text-gray-300 font-medium">${student['Class']}</td>
+                                <td class="py-4 px-4 text-gray-400"><i class="ph ph-phone mr-1"></i>${mobile}</td>
+                                <td class="py-4 px-4 text-gray-400">${gender}</td>
+                                <td class="py-4 px-4 text-gray-400">${dateStr}</td>
+                                <td class="py-4 px-4">
+                                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#22d3ee]/10 text-[#22d3ee] text-[11px] font-bold border border-[#22d3ee]/20 tracking-wide uppercase">
+                                        Pending
+                                    </span>
+                                </td>
+                                <td class="py-4 px-4 text-right">
+                                    <button class="bg-[#151e32] border border-white/5 p-2 rounded-lg text-gray-400 hover:text-[#22d3ee] hover:border-[#22d3ee]/30 transition-all mr-2" title="View Full Profile">
+                                        <i class="ph ph-user-focus text-lg"></i>
+                                    </button>
+                                    <button class="bg-[#151e32] border border-white/5 p-2 rounded-lg text-gray-400 hover:text-green-400 hover:border-green-400/30 transition-all" title="Approve Admission">
+                                        <i class="ph ph-check-circle text-lg"></i>
+                                    </button>
+                                </td>
+                            </tr>`;
+                            tableBody.innerHTML += row;
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                        tableBody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-red-400"><i class="ph-fill ph-warning-circle mr-1 text-xl"></i> Connection error. Could not load database.</td></tr>`;
+                    });
+            }
+        });
+    </script>
+</body>
+
+</html>

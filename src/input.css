@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --color-stg-bg: #0b1121;
+  --color-stg-card: #151e32;
+  --color-stg-cyan: #22d3ee;
+  --color-stg-purple: #a855f7;
+}
+
+@layer utilities {
+  .text-gradient-cyan-purple {
+    background: linear-gradient(to right, var(--color-stg-cyan), var(--color-stg-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bg-network-pattern {
+    background-image: radial-gradient(rgba(34, 211, 238, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --- SPACE BUTTON (CYAN/PURPLE THEME) --- */
+.space-btn {
+  display: flex !important; justify-content: center !important; align-items: center !important;
+  width: 14rem !important; height: 3.5rem !important; overflow: hidden !important;
+  background-size: 300% 300% !important; cursor: pointer !important;
+  backdrop-filter: blur(1rem) !important; border-radius: 5rem !important;
+  transition: 0.5s !important; animation: gradient_301 5s ease infinite !important;
+  border: double 2px transparent !important;
+  background-image: linear-gradient(#0b1121, #0b1121), linear-gradient(137.48deg, #22d3ee 10%, #a855f7 45%, #4f46e5 67%, #22d3ee 87%) !important;
+  background-origin: border-box !important; background-clip: content-box, border-box !important;
+  position: relative !important; text-decoration: none !important;
+}
+.space-btn strong {
+  z-index: 2 !important; font-family: 'Poppins', sans-serif !important; font-size: 14px !important;
+  font-weight: 600 !important; letter-spacing: 2px !important; color: #ffffff !important;
+  text-transform: uppercase !important;
+}
+.space-btn .container-stars {
+  position: absolute !important; z-index: -1 !important; width: 100% !important; height: 100% !important;
+  overflow: hidden !important; transition: 0.5s !important; border-radius: 5rem !important;
+}
+.space-btn .glow { position: absolute !important; display: flex !important; width: 12rem !important; }
+.space-btn .circle { width: 100% !important; height: 30px !important; filter: blur(2rem) !important; animation: pulse_3011 4s infinite !important; z-index: -1 !important; }
+.space-btn .circle:nth-of-type(1) { background: rgba(34, 211, 238, 0.6) !important; }
+.space-btn .circle:nth-of-type(2) { background: rgba(168, 85, 247, 0.6) !important; }
+.space-btn:hover .container-stars { z-index: 1 !important; background-color: rgba(11, 17, 33, 0.8) !important; }
+.space-btn:hover { transform: scale(1.05) !important; }
+.space-btn .stars { position: relative !important; background: transparent !important; width: 200rem !important; height: 200rem !important; }
+.space-btn .stars::after, .space-btn .stars::before { content: "" !important; position: absolute !important; width: 100% !important; height: 100% !important; background-image: radial-gradient(#ffffff 1px, transparent 1%) !important; background-size: 50px 50px !important; }
+.space-btn .stars::after { top: -10rem !important; left: -100rem !important; animation: animStarRotate 90s linear infinite !important; }
+.space-btn .stars::before { top: 0 !important; left: -50% !important; opacity: 0.3 !important; animation: animStar 60s linear infinite !important; }
+
+@keyframes animStar { from { transform: translateY(0); } to { transform: translateY(-135rem); } }
+@keyframes animStarRotate { from { transform: rotate(360deg); } to { transform: rotate(0); } }
+@keyframes gradient_301 { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+@keyframes pulse_3011 { 0% { transform: scale(0.75); } 70% { transform: scale(1); } 100% { transform: scale(0.75); } }
+
+/* --- CHIP LOADER --- */
+.trace-bg { stroke: #333; stroke-width: 1.8; fill: none; }
+.trace-flow {
+  stroke-width: 1.8; fill: none; stroke-dasharray: 40 400; stroke-dashoffset: 438;
+  filter: drop-shadow(0 0 6px currentColor); animation: flow 3s cubic-bezier(0.5, 0, 0.9, 1) infinite;
+}
+.yellow { stroke: #22d3ee; color: #22d3ee; } /* Adjusted colors to theme */
+.blue { stroke: #a855f7; color: #a855f7; }
+.green { stroke: #22d3ee; color: #22d3ee; }
+.purple { stroke: #a855f7; color: #a855f7; }
+.red { stroke: #818cf8; color: #818cf8; }
+@keyframes flow { to { stroke-dashoffset: 0; } }
+
+body { background-color: var(--color-stg-bg); color: #e2e8f0; overflow-x: hidden; }
+
+/* --- SOCIAL MEDIA ICONS (FOOTER) --- */
+.example-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.example-2 .icon-content {
+  margin: 0 8px; /* Thoda gap kam kiya hai taki footer me fit aaye */
+  position: relative;
+}
+.example-2 .icon-content .tooltip {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -45px;
+}
+.example-2 .icon-content a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px; /* Thoda chota kiya hai (40px) footer ke hisab se */
+  height: 40px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
+  color: white;
+}
+.example-2 .icon-content a svg {
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+.example-2 .icon-content a .filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%;
+}
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #0274b3;
+}
+/* GitHub की जगह अब Facebook का ब्लू कलर */
+.example-2 .icon-content a[data-social="facebook"] .filled,
+.example-2 .icon-content a[data-social="facebook"] ~ .tooltip {
+  background-color: #1877f2;
+}
+
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient(45deg, #405de6, #5b51db, #b33ab4, #c135b4, #e1306c, #fd1f1f);
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000;
+}
+
+
+/* --- 2. 3D CYBER GRID BACKGROUND --- */
+#global-space-bg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;
+  perspective: 1000px; /* Gives the 3D effect */
+  opacity: 0.6;
+}
+.cyber-grid {
+  position: absolute; width: 200%; height: 200%; bottom: -50%; left: -50%;
+  background-image: linear-gradient(rgba(34, 211, 238, 0.3) 2px, transparent 2px),
+                    linear-gradient(90deg, rgba(34, 211, 238, 0.3) 2px, transparent 2px);
+  background-size: 60px 60px;
+  transform: rotateX(75deg); /* Lays the grid flat like a floor */
+  animation: gridMove 3s linear infinite;
+}
+.grid-fade {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  /* Fades out the top part so it looks infinite */
+  background: linear-gradient(to bottom, #0b1121 20%, transparent 80%, #0b1121);
+}
+
+@keyframes gridMove { 
+  0% { transform: rotateX(75deg) translateY(0); } 
+  100% { transform: rotateX(75deg) translateY(60px); } 
+}
